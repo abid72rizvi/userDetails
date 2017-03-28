@@ -1,6 +1,6 @@
 var fs = require('fs');
 
-var pushCode = function pushCode(msg,your_branch) {
+var pushCode = function pushCode(msg) {
 try {
 
       const spawn = require('child_process').spawn;
@@ -9,7 +9,7 @@ try {
      spawn('git', ['commit','-m',msg])
      spawn('git', ['push'])
 
-     
+
     ls.on('close', code => {
          console.log(`child process exited with code ${code}`);
 
@@ -20,4 +20,5 @@ try {
 
  }
 
- pushCode("add files","master")
+ pushCode("add files")
+
