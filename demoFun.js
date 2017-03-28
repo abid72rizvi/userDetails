@@ -1,24 +1,24 @@
 var fs = require('fs');
 
-var pushCode = function pushCode(msg) {
+var pushCode = function pushCode(msg,repo) {
 try {
 
       const spawn = require('child_process').spawn;
 
-     var ls = spawn('git', ['add','.'])
-     spawn('git', ['commit','-m',msg])
-     spawn('git', ['push'])
+     var ls =spawn('git', ['add','.'])
+     	spawn('git', ['commit','-m',msg])
+     	spawn('git', ['push'])
 
 
-    ls.on('close', code => {
+   	 ls.on('close', code => {
          console.log(`child process exited with code ${code}`);
 
-     });
- } catch (ex) {
-     console.log('Error')
- }
+   	  });
+	 } catch (ex) {
+ 	    console.log('Error')
+	 }
 
- }
+ 	}
 
  pushCode("add files")
 
